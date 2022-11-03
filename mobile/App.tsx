@@ -3,7 +3,7 @@ import  {useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold} from '@e
 
 import { THEME } from './src/styles/theme'
 import { Loading } from './src/components/Loading';
-import { SignIn  } from './src/screens/Signin';
+import { SignIn  } from './src/screens/SignIn';
 
 export default function App() {
   const [fontsLoaded] = useFonts({Roboto_400Regular, Roboto_500Medium, Roboto_700Bold});

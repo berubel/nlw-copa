@@ -1,10 +1,10 @@
-import  {Center, Spinner} from 'native-base';
-
+import  {Center} from 'native-base';
+import Logo from '../assets/logo.svg';
 
 export function Loading() {
     return(
         <Center flex={1} bg="gray.900">
-            <Spinner color="yellow.500"/>
+            <Logo width={212} height={40} />
         </Center>
     )
 }
