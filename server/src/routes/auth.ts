@@ -4,8 +4,11 @@ import { prisma } from "../lib/prisma";
 import { authenticate } from "../plugins/authenticate";
 
 export async function authRotes(fastify: FastifyInstance) {
-  fastify.get( "/me", {
-        onRequest: [authenticate],},
+  fastify.get(
+    "/me",
+    {
+      onRequest: [authenticate],
+    },
     async (request) => {
       return { user: request.user };
     }
@@ -13,16 +16,17 @@ export async function authRotes(fastify: FastifyInstance) {
 
   fastify.post("/users", async (request) => {
     const createUserBody = z.object({
-      acess_token: z.string(),
+      access_token: z.string(),
     });
 
-    const { acess_token } = createUserBody.parse(request.body);
+    const { access_token } = createUserBody.parse(request.body);
+
     const userResponse = await fetch(
-      "https://googleapis.com/oauth2/v2/userinfo",
+      "https://www.googleapis.com/oauth2/v2/userinfo",
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${acess_token}`,
+          Authorization: `Bearer ${access_token}`,
         },
       }
     );

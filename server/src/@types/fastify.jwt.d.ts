@@ -1,5 +1,4 @@
 import '@fastify/jwt';
-import { string } from 'zod';
 
 declare module '@fastify/jwt'{
     interface FastifyJWT{

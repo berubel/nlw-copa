@@ -107,18 +107,18 @@ export async function poolRotes(fastify: FastifyInstance) {
   );
 
   fastify.get(
-    "pools/",
+    "/pools",
     {
-      onRequest: [authenticate],
+      onRequest: [authenticate]
     },
     async (request) => {
       const pools = await prisma.pool.findMany({
         where: {
           participants: {
-            some: {
+           some: {
               userId: request.user.sub,
-            },
-          },
+            }
+          }
         },
         include: {
           _count: {
@@ -147,9 +147,7 @@ export async function poolRotes(fastify: FastifyInstance) {
         },
       });
       return { pools };
-    }
-  );
-  
+    });
   fastify.get('/pools/:id',{
     onRequest: [authenticate],
   },async (request) => {

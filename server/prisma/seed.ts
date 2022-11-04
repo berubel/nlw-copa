@@ -5,16 +5,16 @@ const prisma = new PrismaClient()
 async function main() {
     const user = await prisma.user.create({
         data: {
-            name: 'Gabriele das Virgens',
-            email: 'gabriele@gmail.com',
-            avatarUrl: 'https://github.com/berubel.png',
+            name: 'Eloise das Virgens',
+            email: 'elocardosov@gmail.com',
+            avatarUrl: '',
         }
     })
 
     const pool = await prisma.pool.create({
         data: {
             title: 'Example Pool',
-            code: 'BOL123',
+            code: 'BOL1234',
             ownerId: user.id,
 
             participants: {
@@ -32,6 +32,16 @@ async function main() {
             secondTeamCountryCode: 'BR',
         }
     })
+
+    await prisma.game.create({
+        data: {
+            date: '2022-11-30T17:50:24.694Z',
+            firstTeamCountryCode: 'JP',
+            secondTeamCountryCode: 'BR',
+        }
+    })
+
+    
 
     await prisma.game.create({
         data: {
