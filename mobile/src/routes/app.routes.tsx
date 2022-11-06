@@ -3,6 +3,7 @@ import { useTheme } from 'native-base'
 import {PlusCircle, SoccerBall} from 'phosphor-react-native'
 import { New } from '../screens/New';
 import { Pools } from '../screens/Pools';
+import { Details } from '../screens/Details';
 import { Platform } from 'react-native';
 import { Find } from '../screens/Find';
 
@@ -48,6 +49,13 @@ export function AppRoutes() {
              <Screen
                 name='find'
                 component={Find}
+                options={{
+                    tabBarButton: () => null
+                }}
+            />
+            <Screen
+                name='details'
+                component={Details}
                 options={{
                     tabBarButton: () => null
                 }}
