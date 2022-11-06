@@ -7,6 +7,7 @@ import { Loading } from "../components/Loading";
 import { api } from "../services/api";
 import {PoolCardProps} from '../components/PoolCard'
 import { PoolHeader } from "../components/PoolHeader";
+import { Guesses } from "../components/Guesses";
 import { EmptyMyPoolList } from "../components/EmptyMyPoolList";
 import { Option } from "../components/Option";
 
@@ -78,6 +79,7 @@ export function Details(){
                             isSelected={optionSelected === 'Ranking do grupo'}
                             onPress={() => setOptionSelected('Ranking do grupo')}
                         />
+                        <Guesses poolId={poolDetails.id}/>
                     </HStack>
                 </VStack>
 
