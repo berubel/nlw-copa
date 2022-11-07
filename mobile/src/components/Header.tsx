@@ -3,14 +3,14 @@ import { CaretLeft, Export } from 'phosphor-react-native';
 import { useNavigation } from '@react-navigation/native'
 import { ButtonIcon } from './ButtonIcon';
 
-interface Props {
+interface HeaderProps {
   title: string;
   showBackButton?: boolean;
   showShareButton?: boolean;
   onShare?: () => void;
 }
 
-export function Header({ title, showBackButton = false, showShareButton = false, onShare }: Props) {
+export function Header({ title, showBackButton = false, showShareButton = false, onShare }: HeaderProps) {
   const EmptyBoxSpace = () => (<Box w={6} h={6} />);
   const navigation = useNavigation();
 

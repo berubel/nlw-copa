@@ -12,7 +12,7 @@ export function New() {
     const toast = useToast()
 
     async function handlePoolCreate() {
-        if(!title.trim()) {
+        if (!title.trim()) {
             return toast.show({
                 title: 'Informe um nome para seu bolão',
                 placement: 'top',
@@ -23,8 +23,8 @@ export function New() {
         try {
             setIsLoading(true)
 
-            await api.post('/pools', {title: title.toUpperCase})
-            
+            await api.post('/pools', { title: title.toUpperCase })
+
             toast.show({
                 title: 'Bolão criado com sucesso!',
                 placement: 'top',
@@ -33,7 +33,7 @@ export function New() {
 
             setTitle('')
 
-        } catch(error) {
+        } catch (error) {
             console.log(error);
 
             toast.show({
@@ -46,30 +46,30 @@ export function New() {
         }
     }
 
-    
+
     return (
         <VStack flex={1} bgColor="gray.900">
             <Header title='Criar novo balão' />
 
             <VStack mt={8} mx={5} alignItems='center'>
-                <Logo/>
+                <Logo />
 
                 <Heading fontFamily='heading' color='white' fontSize='xl' my={8} textAlign='center'>
                     Crie seu próprio bolão da copa {'\n'}
-                     e compartilhe entre amigos!
+                    e compartilhe entre amigos!
                 </Heading>
 
-                <Input 
-                    mb={2} 
+                <Input
+                    mb={2}
                     placeholder='Qual nome do seu bolão?'
                     onChangeText={setTitle}
                     value={title}
                 />
-                
+
                 <Button
-                 title="CRIAR MEU BOLÃO"
-                 onPress={handlePoolCreate}
-                 isLoading={isLoading}
+                    title="CRIAR MEU BOLÃO"
+                    onPress={handlePoolCreate}
+                    isLoading={isLoading}
                 />
 
                 <Text color='gray.200' fontSize='sm' textAlign='center' px={10} mt={4}>
